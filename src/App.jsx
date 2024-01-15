@@ -4,6 +4,7 @@
 import Banner from "./components/Banner"
 import Movies from "./components/Movies"
 import Navbar from "./components/Navbar"
+import Pagination from "./components/Pagination"
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Navbar></Navbar>
       <Banner></Banner>
       <Movies></Movies>
+      <Pagination></Pagination>
     </>
   )
 }
