@@ -1,6 +1,9 @@
+
 import movie from '../images/m.jpg'
 
 const Movies = () => {
+
+   
     return (
         <>
             <div className="-mt-6">
