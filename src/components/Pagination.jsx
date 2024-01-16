@@ -1,19 +1,10 @@
-import { useState } from "react";
 
 
-const Pagination = () => {
-    const [pageNumber, setPage]=useState(1)
 
-    const onPrev=()=>{
-        if(pageNumber>1)
-        {
-            setPage(pageNumber-1)
-        }
-    }
-
-    const onNext =()=>{
-        setPage(pageNumber+1)
-    }
+const Pagination = (props) => {
+    console.log(props)
+    const {pageNumber,onPrev,onNext}=props
+   
     
     return (
         <>

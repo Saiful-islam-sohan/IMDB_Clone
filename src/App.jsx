@@ -6,7 +6,7 @@ import Banner from "./components/Banner"
 import Movies from "./components/Movies"
 import Navbar from "./components/Navbar"
 import Favorites from "./components/Favorites"
-import Pagination from "./components/Pagination"
+
 import PageNotFound from "./components/PageNotFound"
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
           <>
             <Banner></Banner>
             <Movies></Movies>
-            <Pagination></Pagination>
+           
           </>
         }></Route>
 
