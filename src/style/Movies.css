@@ -1,0 +1,10 @@
+/* Movies.css */
+.movie-container {
+    position: relative;
+}
+
+.upper-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
