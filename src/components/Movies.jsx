@@ -4,11 +4,13 @@ import axios from 'axios';
 import Pagination from './Pagination';
 
 import '../style/Movies.css'; // Import your CSS file
+import { space } from 'postcss/lib/list';
 
 const Movies = () => {
     const [Movies, setMovies] = useState([]);
     const [pageNumber, setPage] = useState(1);
     const [hovered,setHovered]=useState('')
+    const [favorites,setFavorites]=useState([]);
     
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=83783c4b385c2a51a9659386b01b7e35&page=${pageNumber}`)
@@ -34,6 +36,19 @@ const Movies = () => {
        setHovered(id)
         
     }
+    const addimogi = (id)=>{
+       const newfavorite= [...favorites,id]
+       setFavorites(newfavorite)
+        
+    }
+    const removeimogi = (id)=>{
+
+        const filteredfav=favorites.filter((element)=>{
+           return element !==id;
+        })
+        setFavorites(filteredfav);
+        
+    }
 
     
     return (
@@ -47,8 +62,12 @@ const Movies = () => {
                         Movies.map((movie) => (
                             <div key={movie.id} className='movie-container'  onMouseOver={()=>(showEmoji(movie.id))}>
                                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" className='w-[150px] h-[200px] rounded-md hover:scale-110 duration-300' />
-                                <div className='upper-right w-[30px] h-[30px] text-2xl bg-gray-900 rounded-xl' style={{ display:hovered==movie.id?"block":"none"}}>
-                                    😊
+                                <div className='upper-right w-[30px] h-[30px] text-2xl bg-gray-900 rounded-xl' style={{ display:hovered==movie.id?"block":"none"}} >
+                                    
+                                    {
+                                        favorites.includes(movie.id)==false? <button onClick={()=>addimogi(movie.id)} >😊</button> : <button onClick={()=>removeimogi(movie.id)}>❌</button>
+                                        
+                                    }
                                 
 
                                 </div>
